@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
-test('HTML source has 0 as initial display value', async ({ request }) => {
-  const response = await request.get('/');
+test('HTML source has 0 as initial display value', async ({ page }) => {
+  const response = await page.goto('/');
   const body = await response.text();
   expect(body).toContain('id="display" aria-live="polite">0<');
 });
